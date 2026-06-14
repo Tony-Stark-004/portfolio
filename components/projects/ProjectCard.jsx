@@ -24,21 +24,12 @@ export default function ProjectCard({ project, index }) {
       ref={ref}
       className="reveal rounded-xl p-6 md:p-8 border transition-colors"
       style={{
-        background: "#E7E7DD",
-        borderColor: "#CECEC5",
+        background: "var(--surface)",
+        borderColor: "var(--border)",
         transitionDelay: `${index * 0.08}s`,
-        "--text-1": "#1D1D1B",
-        "--text-2": "#4e4e4a",
-        "--text-3": "#818179",
-        "--border": "#CECEC5",
-        "--border-2": "#B5B5AC",
-        "--border-h": "#8f8f86",
-        "--bg": "#DDDDD3",
-        "--surface": "#FFFFF7",
-        "--surface-2": "#F4F4EC",
       }}
-      onMouseEnter={e => e.currentTarget.style.borderColor = "#B5B5AC"}
-      onMouseLeave={e => e.currentTarget.style.borderColor = "#CECEC5"}
+      onMouseEnter={e => e.currentTarget.style.borderColor = "var(--border-2)"}
+      onMouseLeave={e => e.currentTarget.style.borderColor = "var(--border)"}
     >
       {/* Header */}
       <div className="flex flex-wrap justify-between gap-4 mb-5">
