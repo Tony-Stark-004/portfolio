@@ -99,16 +99,20 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Animated mouse scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-        <div className="scroll-mouse" aria-label="Scroll down" />
+      {/* Animated mouse scroll indicator — clicks scroll to #about */}
+      <button
+        onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer bg-transparent border-none p-2 group"
+        aria-label="Scroll to About section"
+      >
+        <div className="scroll-mouse group-hover:border-[var(--text-1)]" />
         <span
-          className="font-mono text-[9px] tracking-[0.2em] uppercase"
+          className="font-mono text-[9px] tracking-[0.2em] uppercase transition-colors"
           style={{ color: "var(--text-3)" }}
         >
           scroll
         </span>
-      </div>
+      </button>
     </section>
   );
 }
