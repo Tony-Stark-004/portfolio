@@ -1,109 +1,52 @@
-# Aditya Kumar — Portfolio
+# Aditya Kumar
 
-Personal portfolio of **Aditya Kumar**, Full-Stack Software Engineer specializing in AI-powered products and distributed systems.
-
-**GitHub:** [@Tony-Stark-004](https://github.com/Tony-Stark-004)
+**Full-Stack Software Engineer** — building AI-powered products and distributed systems.
 
 ---
 
-## Tech Stack
+## About
 
-- **Framework:** Next.js 16 (App Router)
-- **Styling:** Tailwind CSS v4 + CSS custom properties
-- **Language:** JavaScript
-- **Animations:** IntersectionObserver scroll-reveal
-- **Theming:** Dark / Light mode with zero flash on load
+I'm a Full-Stack Software Engineer with 3 years of experience shipping production systems across two startups. I work across the full stack — from designing distributed microservices and integrating LLMs and RAG pipelines, to building clean, responsive frontends. I care about system design, clean architecture, and writing code that actually makes it to production.
+
+Currently at **Wasserstoff RJ Innovations** (Gurugram), where I'm building AI-driven recruitment products used by 10,000+ users. Previously at **Rooba Finance**, where I built blockchain compliance infrastructure for enterprise clients.
 
 ---
 
-## Features
+## Experience
 
-- **Dark & Light mode** — Pantone Black C (`#1D1D1B`) / White Sand (`#E7E7DD`) palette, persisted in `localStorage` with no FOUC
-- **Scroll reveal animations** — sections and cards fade up as they enter the viewport
-- **Projects showcase** — collapsible repository list, local video demo player, YouTube links
-- **Timeline experience** — vertical connector with animated entries
-- **Responsive** — mobile-first layout across all screen sizes
-- **Custom favicon** — AK monogram SVG
+### Wasserstoff RJ Innovations — Senior Software Engineer
+*Jan 2025 – Present · Gurugram, Haryana*
 
----
+- Shipped **ChaturAI** — an AI-powered recruitment SaaS platform with 10,000+ registered users, automating resume screening, candidate ranking, and JD generation.
+- Built automated resume parsing pipeline processing 200+ resumes/day using multithreading, Java Streams, and Kafka for async job queuing.
+- Designed RBAC authentication with Spring Security and JWT supporting multiple user roles across the platform.
+- Owned end-to-end CI/CD pipeline with Jenkins and Docker; collaborated in an Agile/Scrum team with 2-week sprint cycles.
 
-## Sections
+### Rooba Finance — Full Stack Engineer
+*Jun 2023 – Jan 2025 · Gurugram, Haryana*
 
-| Section | Content |
-|---------|---------|
-| Hero | Name, title, tagline, social links (GitHub · LinkedIn · LeetCode) |
-| About | Bio, stats (3 yrs exp · 10K+ users · 2 startups · 200+ resumes/day) |
-| Experience | Wasserstoff RJ Innovations · Rooba Finance |
-| Projects | E-Commerce Microservices Platform · AI Helpdesk Backend |
-| Skills | Languages, frameworks, tools, cloud, concepts |
-| Education | VIT Bhopal · Delhi Public School |
+- Delivered a full-stack token compliance platform on Polygon blockchain, enabling regulated on-chain token transfers for enterprise clients in production.
+- Integrated Idefy KYC (PAN, Aadhaar, face match) into onboarding, automating identity checks for 500+ users and eliminating manual review.
+- Implemented MCA-based corporate verification, reducing enterprise compliance verification effort by ~70%.
 
 ---
 
 ## Projects
 
 ### E-Commerce Microservices Platform
-8 independent Spring Boot microservices with Keycloak OAuth2/JWT, RabbitMQ async messaging, Redis rate limiting, full Prometheus / Grafana / Zipkin observability, and Jenkins CI/CD.
+A production-grade e-commerce backend decomposed into 8 independent Spring Boot microservices, each owning its own database and deployment lifecycle. Features OAuth2/JWT security via Keycloak, async order notifications via RabbitMQ, full observability with Prometheus, Grafana, and Zipkin, and a Jenkins CI/CD pipeline with immutable Docker image tags.
+
+→ [Watch Demo](https://www.youtube.com/watch?v=SvC2JqENiGI)
 
 ### AI Helpdesk Backend
-RAG pipeline with pgvector cosine search, Spring AI Tool Calling, JDBC-backed persistent chat memory, and dual LLM support (Google Gemini 2.5 Flash + Ollama llama3.2).
+An AI-powered helpdesk assistant (Liza) that handles support end-to-end — answers FAQs from a knowledge base via RAG, creates and tracks tickets in PostgreSQL, sends email notifications, and remembers conversation history across sessions. Built with Spring AI Tool Calling and dual LLM support (Google Gemini 2.5 Flash + Ollama llama3.2).
+
+→ [GitHub](https://github.com/Tony-Stark-004/helpdesk-ai) · [Watch Demo](https://www.youtube.com/watch?v=UgYqoJtaIQI)
 
 ---
 
-## Getting Started
+## Links
 
-```bash
-npm install
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000).
-
-```bash
-npm run build   # production build
-npm start       # serve production build
-```
-
----
-
-## Project Structure
-
-```
-app/
-  layout.jsx          # Root layout — theme script, metadata
-  page.jsx            # Single page — all sections composed here
-  globals.css         # Theme variables, base styles, animations
-components/
-  Navbar.jsx          # Sticky nav with active section tracking
-  Hero.jsx            # Landing section with social links
-  About.jsx           # Bio + stats grid
-  Experience.jsx      # Timeline of work history
-  Skills.jsx          # Skill group cards
-  Education.jsx       # Education cards
-  SectionHeading.jsx  # Shared heading component
-  ThemeProvider.jsx   # Dark/light context
-  Footer.jsx
-  projects/
-    Projects.jsx
-    ProjectCard.jsx
-    ReposList.jsx     # Collapsible repository list
-    VideoPlayer.jsx
-data/
-  projects.js         # Project content
-  experience.js       # Work history
-  skills.js           # Skill groups
-  education.js        # Education entries
-hooks/
-  useScrollReveal.js
-  useActiveSection.js
-public/
-  ecom-microservice-demo.mp4    # git-ignored (>100 MB) — add manually
-  helpdesk-ai-demo.mp4          # git-ignored (>100 MB) — add manually
-```
-
----
-
-## Notes
-
-- Demo videos (`*.mp4`) are excluded from git — they exceed GitHub's 100 MB limit. Copy them manually into `public/` after cloning.
-- Theme is applied before React hydrates via an inline `<script>` in `<head>` to prevent flash of unstyled content.
+- GitHub: [github.com/Tony-Stark-004](https://github.com/Tony-Stark-004)
+- LinkedIn: [linkedin.com/in/shahaditya292](https://www.linkedin.com/in/shahaditya292)
+- LeetCode: [leetcode.com/u/leetCode-ak](https://leetcode.com/u/leetCode-ak/)
