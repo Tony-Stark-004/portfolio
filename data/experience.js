@@ -11,10 +11,10 @@ export const experience = [
         link: { label: "ChaturAI", href: "https://app.aichatur.com/", replaces: "ChaturAI" },
       },
       {
-        text: "Designed RBAC authentication with Spring Security and JWT supporting multiple user roles; built automated resume parsing pipeline processing 200+ resumes/day using multithreading and Java Streams for concurrent document processing.",
+        text: "Designed RBAC authentication with Spring Security and JWT supporting multiple user roles; built automated resume parsing pipeline processing 200+ resumes/day using multithreading, Java Streams, and Kafka for async job queuing and concurrent document processing.",
       },
       {
-        text: "Owned end-to-end CI/CD pipeline with Jenkins and Docker, integrating automated unit and integration testing with JUnit to streamline build and deployment across environments.",
+        text: "Owned end-to-end CI/CD pipeline with Jenkins and Docker, integrating automated unit and integration testing with JUnit; collaborated in Agile/Scrum team with 2-week sprint cycles to streamline build, deployment, and feature delivery.",
       },
     ],
   },
