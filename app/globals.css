@@ -13,7 +13,7 @@
 :root,
 [data-theme="dark"] {
   --bg:        #1D1D1B;
-  --bg-alt:    #232321;
+  --bg-alt:    #1D1D1B;
   --surface:   #2a2a28;
   --surface-2: #313130;
   --surface-3: #383836;
