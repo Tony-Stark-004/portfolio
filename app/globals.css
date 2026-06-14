@@ -1,3 +1,102 @@
+@import "tailwindcss";
+
+/* ════════════════════════════════════════════════════════════
+   THEME VARIABLES — Pantone-accurate palette
+
+   DARK  → Pantone Black C  (#1D1D1B) — warm charcoal, not pure black
+   LIGHT → White Sand (#E7E7DD) bg + White (#FFFFF7) surfaces
+   ════════════════════════════════════════════════════════════ */
+
+:root,
+[data-theme="dark"] {
+  --bg:        #1D1D1B;
+  --bg-alt:    #232321;
+  --surface:   #2a2a28;
+  --surface-2: #313130;
+  --surface-3: #383836;
+
+  --border:    #323230;
+  --border-2:  #444442;
+  --border-h:  #5e5e5b;
+
+  --text-1:    #FFFFF7;
+  --text-2:    #a8a8a2;
+  --text-3:    #686863;
+  --text-inv:  #1D1D1B;
+
+  --accent:    #d0d0c8;
+  --accent-btn:#FFFFF7;
+
+  --nav-bg:    rgba(29, 29, 27, 0.88);
+}
+
+[data-theme="light"] {
+  --bg:        #E7E7DD;
+  --bg-alt:    #DDDDD3;
+  --surface:   #FFFFF7;
+  --surface-2: #F4F4EC;
+  --surface-3: #EAEAE2;
+
+  --border:    #CECEC5;
+  --border-2:  #B5B5AC;
+  --border-h:  #8f8f86;
+
+  --text-1:    #1D1D1B;
+  --text-2:    #4e4e4a;
+  --text-3:    #818179;
+  --text-inv:  #FFFFF7;
+
+  --accent:    #2e2e2c;
+  --accent-btn:#1D1D1B;
+
+  --nav-bg:    rgba(231, 231, 221, 0.88);
+}
+
+/* ════════════════════════════════════════════════════════════
+   BASE
+   ════════════════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-1);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-h); }
+
+/* ── Text selection ── */
+::selection { background: var(--surface-3); color: var(--text-1); }
+
+/* ════════════════════════════════════════════════════════════
+   SCROLL REVEAL
+   ════════════════════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ════════════════════════════════════════════════════════════
+   HERO — dot grid
+   ════════════════════════════════════════════════════════════ */
 .hero-grid {
   position: absolute;
   inset: 0;
