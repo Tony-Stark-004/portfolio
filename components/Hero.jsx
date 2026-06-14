@@ -40,6 +40,7 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center overflow-hidden"
     >
+      <div className="hero-noise" aria-hidden="true" />
       <div className="hero-grid" aria-hidden="true" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-10 pt-24 pb-16">
