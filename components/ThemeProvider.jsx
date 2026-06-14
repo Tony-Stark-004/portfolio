@@ -5,22 +5,17 @@ import { createContext, useContext, useEffect, useState } from "react";
 const ThemeContext = createContext({ theme: "dark", toggle: () => {} });
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState("dark");
+  // Read the theme already applied by the inline <script> in layout.jsx
+  // so initial state matches what's on the DOM — avoids any flicker.
+  const [theme, setTheme] = useState(() => {
+    if (typeof window === "undefined") return "dark";
+    return document.documentElement.getAttribute("data-theme") || "dark";
+  });
 
-  // On mount: read saved preference or system preference
-  useEffect(() => {
-    const saved = localStorage.getItem("portfolio-theme");
-    if (saved === "light" || saved === "dark") {
-      setTheme(saved);
-    } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-      setTheme("light");
-    }
-  }, []);
-
-  // Apply theme to <html> whenever it changes
+  // Sync DOM + localStorage whenever theme changes
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("portfolio-theme", theme);
+    try { localStorage.setItem("portfolio-theme", theme); } catch (_) {}
   }, [theme]);
 
   const toggle = () => setTheme((t) => (t === "dark" ? "light" : "dark"));

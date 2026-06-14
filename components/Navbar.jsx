@@ -51,10 +51,10 @@ export default function Navbar() {
   return (
     <nav
       style={{
-        backgroundColor: scrolled ? "color-mix(in srgb, var(--bg) 88%, transparent)" : "transparent",
+        backgroundColor: scrolled ? "var(--nav-bg)" : "transparent",
         borderBottomColor: scrolled ? "var(--border)" : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        WebkitBackdropFilter: scrolled ? "blur(12px)" : "none",
+        backdropFilter: scrolled ? "blur(14px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(14px)" : "none",
       }}
       className="fixed top-0 left-0 right-0 z-50 border-b"
     >

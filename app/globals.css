@@ -4,56 +4,65 @@
 @import "tailwindcss";
 
 /* ════════════════════════════════════════════════════════════
-   THEME VARIABLES
-   :root        = dark  (midnight)
-   [data-theme="light"] = light (creamy / off-white)
+   THEME VARIABLES — Pantone-accurate palette
+
+   DARK  → Pantone Black C  (#1D1D1B) — warm charcoal, not pure black
+   LIGHT → White Sand       (#E7E7DD) + White (#FFFFF7)
    ════════════════════════════════════════════════════════════ */
-:root {
-  /* Backgrounds */
-  --bg:         #0d1117;   /* page base — midnight (GitHub-style) */
-  --bg-alt:     #0f1318;   /* slightly lighter variant */
-  --surface:    #161b22;   /* cards */
-  --surface-2:  #1c2128;   /* elevated cards */
-  --surface-3:  #21262d;   /* hover surface */
+
+:root,
+[data-theme="dark"] {
+  /* Backgrounds — layered from #1D1D1B */
+  --bg:        #1D1D1B;   /* Pantone Black C base */
+  --bg-alt:    #232321;
+  --surface:   #2a2a28;   /* cards */
+  --surface-2: #313130;   /* elevated card */
+  --surface-3: #383836;   /* hover surface */
 
   /* Borders */
-  --border:     #21262d;
-  --border-2:   #30363d;
-  --border-h:   #484f58;   /* hover border */
+  --border:    #323230;
+  --border-2:  #444442;
+  --border-h:  #5e5e5b;
 
   /* Text */
-  --text-1:     #e6edf3;   /* primary — bright */
-  --text-2:     #8b949e;   /* secondary — muted grey */
-  --text-3:     #484f58;   /* very muted */
-  --text-inv:   #0d1117;   /* inverse (for light buttons) */
+  --text-1:    #FFFFF7;   /* Pantone White — warm, not cold */
+  --text-2:    #a8a8a2;
+  --text-3:    #686863;
+  --text-inv:  #1D1D1B;
 
   /* Accent */
-  --accent:     #c9d1d9;
-  --accent-btn: #f0f6fc;
+  --accent:    #d0d0c8;
+  --accent-btn:#FFFFF7;
+
+  /* Navbar scrolled backdrop */
+  --nav-bg: rgba(29, 29, 27, 0.88);
 }
 
 [data-theme="light"] {
-  /* Backgrounds */
-  --bg:         #faf8f5;   /* creamy off-white */
-  --bg-alt:     #f5f3ef;
-  --surface:    #eeebe5;   /* warm grey card */
-  --surface-2:  #e6e3dc;
-  --surface-3:  #dedad2;
+  /* Backgrounds — White Sand palette */
+  --bg:        #E7E7DD;   /* Pantone 427C — White Sand */
+  --bg-alt:    #DDDDD3;
+  --surface:   #FFFFF7;   /* Pantone 663C — White */
+  --surface-2: #F4F4EC;
+  --surface-3: #EAEAE2;
 
   /* Borders */
-  --border:     #ddd8d0;
-  --border-2:   #c9c4bb;
-  --border-h:   #a8a39a;
+  --border:    #CECEC5;
+  --border-2:  #B5B5AC;
+  --border-h:  #8f8f86;
 
   /* Text */
-  --text-1:     #1c1917;
-  --text-2:     #57534e;
-  --text-3:     #a8a29e;
-  --text-inv:   #faf8f5;
+  --text-1:    #1D1D1B;   /* Pantone Black C */
+  --text-2:    #4e4e4a;
+  --text-3:    #818179;
+  --text-inv:  #FFFFF7;
 
   /* Accent */
-  --accent:     #44403c;
-  --accent-btn: #1c1917;
+  --accent:    #2e2e2c;
+  --accent-btn:#1D1D1B;
+
+  /* Navbar scrolled backdrop */
+  --nav-bg: rgba(231, 231, 221, 0.88);
 }
 
 /* ════════════════════════════════════════════════════════════
@@ -73,13 +82,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+/* ── Smooth theme transition on all surfaces ── */
+*:not(video):not(img) {
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
 }
 
 /* ── Scrollbar ── */
-::-webkit-scrollbar          { width: 5px; }
-::-webkit-scrollbar-track    { background: var(--bg); }
-::-webkit-scrollbar-thumb    { background: var(--border-2); border-radius: 4px; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--border-h); }
 
 /* ── Text selection ── */
@@ -91,7 +107,8 @@ body {
 .reveal {
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
+  /* Override the global theme transition for this specific property */
+  transition: opacity 0.55s ease, transform 0.55s ease !important;
 }
 .reveal.visible {
   opacity: 1;
@@ -106,9 +123,8 @@ body {
   inset: 0;
   background-image: radial-gradient(circle, var(--border-2) 1px, transparent 1px);
   background-size: 28px 28px;
-  opacity: 0.6;
+  opacity: 0.5;
   pointer-events: none;
-  transition: opacity 0.3s ease;
 }
 .hero-grid::after {
   content: '';
@@ -118,11 +134,9 @@ body {
 }
 
 /* ════════════════════════════════════════════════════════════
-   TIMELINE — vertical connector line
+   TIMELINE — vertical connector
    ════════════════════════════════════════════════════════════ */
-.timeline-track {
-  position: relative;
-}
+.timeline-track { position: relative; }
 .timeline-track::before {
   content: '';
   position: absolute;
@@ -132,18 +146,4 @@ body {
   width: 1px;
   background: linear-gradient(to bottom, var(--border-2) 80%, transparent);
   pointer-events: none;
-}
-
-/* ════════════════════════════════════════════════════════════
-   THEME TRANSITION — smooth switch on all surfaces
-   ════════════════════════════════════════════════════════════ */
-*, *::before, *::after {
-  transition-property: background-color, border-color, color;
-  transition-duration: 0.25s;
-  transition-timing-function: ease;
-}
-/* Exclude transitions on elements that use their own transition */
-a, button, [class*="hover"] {
-  transition-property: background-color, border-color, color, opacity, transform;
-  transition-duration: 0.15s;
 }

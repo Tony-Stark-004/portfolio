@@ -13,7 +13,32 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-theme="dark" className="scroll-smooth">
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
+      <head>
+        {/*
+          Inline script runs synchronously before paint — reads saved theme
+          from localStorage and sets data-theme on <html> BEFORE React hydrates.
+          This prevents any flash of wrong theme (FOUC).
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var saved = localStorage.getItem('portfolio-theme');
+                  if (saved === 'light' || saved === 'dark') {
+                    document.documentElement.setAttribute('data-theme', saved);
+                  } else {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                  }
+                } catch(e) {
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
       <body>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
