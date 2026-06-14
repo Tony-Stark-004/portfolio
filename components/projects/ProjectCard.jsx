@@ -42,16 +42,6 @@ export default function ProjectCard({ project, index }) {
 
         {/* Links */}
         <div className="flex items-center gap-2 flex-wrap">
-          {project.githubUrl && (
-            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border text-[12px] font-mono transition-colors"
-              style={{ borderColor: "var(--border-2)", color: "var(--text-2)" }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--border-h)"; e.currentTarget.style.color = "var(--text-1)"; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--border-2)"; e.currentTarget.style.color = "var(--text-2)"; }}
-            >
-              <GitHubIcon /> GitHub
-            </a>
-          )}
           {project.youtubeUrl && (
             <a href={project.youtubeUrl} target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border text-[12px] font-mono transition-colors"
