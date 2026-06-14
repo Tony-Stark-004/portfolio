@@ -12,8 +12,8 @@
 
 :root,
 [data-theme="dark"] {
-  --bg:        #1D1D1B;
-  --bg-alt:    #1D1D1B;
+  --bg:        #232321;
+  --bg-alt:    #232321;
   --surface:   #2a2a28;
   --surface-2: #313130;
   --surface-3: #383836;
@@ -30,7 +30,7 @@
   --accent:    #d0d0c8;
   --accent-btn:#FFFFF7;
 
-  --nav-bg:    rgba(29, 29, 27, 0.88);
+  --nav-bg:    rgba(35, 35, 33, 0.88);
 }
 
 [data-theme="light"] {
