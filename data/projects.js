@@ -18,6 +18,7 @@ export const projects = [
     ],
     youtubeUrl: "https://www.youtube.com/watch?v=SvC2JqENiGI",
     videoFile: "/ecom-microservice-demo.mp4",
+    githubUrl: "https://github.com/Tony-Stark-004/microservice-ecom-0-deploy",
     repos: [
       { icon: "🔧", name: "microservice-ecom-0-deploy", desc: "Deploy & Docker Compose", url: "https://github.com/Tony-Stark-004/microservice-ecom-0-deploy" },
       { icon: "⚙️", name: "microservice-ecom-1-configserver", desc: "Config Server", url: "https://github.com/Tony-Stark-004/microservice-ecom-1-configserver" },
@@ -48,6 +49,8 @@ export const projects = [
     youtubeUrl: "https://www.youtube.com/watch?v=UgYqoJtaIQI",
     videoFile: "/helpdesk-ai-demo.mp4",
     githubUrl: "https://github.com/Tony-Stark-004/helpdesk-ai",
-    repos: null,
+    repos: [
+      { icon: "🤖", name: "helpdesk-ai", desc: "AI Helpdesk Backend — full source", url: "https://github.com/Tony-Stark-004/helpdesk-ai" },
+    ],
   },
 ];

@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * SectionHeading — consistent heading block used across all sections.
  * Explicitly sets colors via inline style to avoid any CSS cascade issues.
