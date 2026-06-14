@@ -17,7 +17,6 @@ export const projects = [
       "Prometheus", "Grafana", "Zipkin", "Loki", "Docker", "Jenkins", "Resilience4j",
     ],
     youtubeUrl: "https://www.youtube.com/watch?v=SvC2JqENiGI",
-    videoFile: "/ecom-microservice-demo.mp4",
     githubUrl: "https://github.com/Tony-Stark-004/microservice-ecom-0-deploy",
     repos: [
       { icon: "🔧", name: "microservice-ecom-0-deploy", desc: "Deploy & Docker Compose", url: "https://github.com/Tony-Stark-004/microservice-ecom-0-deploy" },
@@ -47,7 +46,6 @@ export const projects = [
       "Google Gemini", "Ollama", "llama3.2", "pgvector", "PostgreSQL", "Docker", "Gmail SMTP",
     ],
     youtubeUrl: "https://www.youtube.com/watch?v=UgYqoJtaIQI",
-    videoFile: "/helpdesk-ai-demo.mp4",
     githubUrl: "https://github.com/Tony-Stark-004/helpdesk-ai",
     repos: [
       { icon: "🤖", name: "helpdesk-ai", desc: "AI Helpdesk Backend — full source", url: "https://github.com/Tony-Stark-004/helpdesk-ai" },
