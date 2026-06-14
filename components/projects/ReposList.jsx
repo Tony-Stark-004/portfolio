@@ -26,7 +26,7 @@ const ChevronIcon = ({ open }) => (
 );
 
 export default function ReposList({ repos }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   return (
     <div className="mt-5">
