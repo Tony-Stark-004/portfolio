@@ -99,12 +99,15 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-30">
-        <span className="font-mono text-[10px] tracking-widest uppercase" style={{ color: "var(--text-3)" }}>
+      {/* Animated mouse scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+        <div className="scroll-mouse" aria-label="Scroll down" />
+        <span
+          className="font-mono text-[9px] tracking-[0.2em] uppercase"
+          style={{ color: "var(--text-3)" }}
+        >
           scroll
         </span>
-        <div className="w-px h-8" style={{ background: `linear-gradient(to bottom, var(--text-3), transparent)` }} />
       </div>
     </section>
   );

@@ -134,6 +134,42 @@ body {
 }
 
 /* ════════════════════════════════════════════════════════════
+   SCROLL MOUSE INDICATOR
+   ════════════════════════════════════════════════════════════ */
+@keyframes scroll-dot {
+  0%   { transform: translateX(-50%) translateY(0);   opacity: 1; }
+  60%  { transform: translateX(-50%) translateY(7px); opacity: 0.4; }
+  100% { transform: translateX(-50%) translateY(0);   opacity: 0; }
+}
+
+.scroll-mouse {
+  width: 24px;
+  height: 38px;
+  border: 2px solid var(--text-2);
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.scroll-mouse:hover {
+  border-color: var(--text-1);
+}
+
+.scroll-mouse::before {
+  content: '';
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 6px;
+  background: var(--text-2);
+  border-radius: 2px;
+  animation: scroll-dot 1.6s ease-in-out infinite;
+}
+
+/* ════════════════════════════════════════════════════════════
    TIMELINE — vertical connector
    ════════════════════════════════════════════════════════════ */
 .timeline-track { position: relative; }
