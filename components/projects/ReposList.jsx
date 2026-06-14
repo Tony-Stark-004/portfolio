@@ -52,7 +52,7 @@ export default function ReposList({ repos }) {
               href={repo.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-start gap-2.5 px-3 py-2.5 rounded-md border transition-colors"
+              className="flex items-start gap-2.5 px-3 py-2.5 rounded-md border transition-colors min-w-0 overflow-hidden"
               style={{ background: "var(--bg)", borderColor: "var(--border)" }}
               onMouseEnter={e => {
                 e.currentTarget.style.borderColor = "var(--border-2)";
@@ -64,7 +64,7 @@ export default function ReposList({ repos }) {
               }}
             >
               <span className="text-sm mt-0.5 shrink-0">{repo.icon}</span>
-              <div className="min-w-0">
+              <div className="min-w-0 overflow-hidden">
                 <p className="font-mono text-[12px] truncate" style={{ color: "var(--text-2)" }}>
                   {repo.name}
                 </p>
