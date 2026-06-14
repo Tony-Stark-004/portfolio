@@ -7,62 +7,52 @@
    THEME VARIABLES — Pantone-accurate palette
 
    DARK  → Pantone Black C  (#1D1D1B) — warm charcoal, not pure black
-   LIGHT → White Sand       (#E7E7DD) + White (#FFFFF7)
+   LIGHT → White Sand (#E7E7DD) bg + White (#FFFFF7) surfaces
    ════════════════════════════════════════════════════════════ */
 
 :root,
 [data-theme="dark"] {
-  /* Backgrounds — layered from #1D1D1B */
-  --bg:        #1D1D1B;   /* Pantone Black C base */
+  --bg:        #1D1D1B;
   --bg-alt:    #232321;
-  --surface:   #2a2a28;   /* cards */
-  --surface-2: #313130;   /* elevated card */
-  --surface-3: #383836;   /* hover surface */
+  --surface:   #2a2a28;
+  --surface-2: #313130;
+  --surface-3: #383836;
 
-  /* Borders */
   --border:    #323230;
   --border-2:  #444442;
   --border-h:  #5e5e5b;
 
-  /* Text */
-  --text-1:    #FFFFF7;   /* Pantone White — warm, not cold */
+  --text-1:    #FFFFF7;
   --text-2:    #a8a8a2;
   --text-3:    #686863;
   --text-inv:  #1D1D1B;
 
-  /* Accent */
   --accent:    #d0d0c8;
   --accent-btn:#FFFFF7;
 
-  /* Navbar scrolled backdrop */
-  --nav-bg: rgba(29, 29, 27, 0.88);
+  --nav-bg:    rgba(29, 29, 27, 0.88);
 }
 
 [data-theme="light"] {
-  /* Backgrounds — White Sand palette */
-  --bg:        #E7E7DD;   /* Pantone 427C — White Sand */
+  --bg:        #E7E7DD;
   --bg-alt:    #DDDDD3;
-  --surface:   #FFFFF7;   /* Pantone 663C — White */
+  --surface:   #FFFFF7;
   --surface-2: #F4F4EC;
   --surface-3: #EAEAE2;
 
-  /* Borders */
   --border:    #CECEC5;
   --border-2:  #B5B5AC;
   --border-h:  #8f8f86;
 
-  /* Text */
-  --text-1:    #1D1D1B;   /* Pantone Black C */
+  --text-1:    #1D1D1B;
   --text-2:    #4e4e4a;
   --text-3:    #818179;
   --text-inv:  #FFFFF7;
 
-  /* Accent */
   --accent:    #2e2e2c;
   --accent-btn:#1D1D1B;
 
-  /* Navbar scrolled backdrop */
-  --nav-bg: rgba(231, 231, 221, 0.88);
+  --nav-bg:    rgba(231, 231, 221, 0.88);
 }
 
 /* ════════════════════════════════════════════════════════════
@@ -82,14 +72,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  transition: background-color 0.35s ease, color 0.35s ease;
+  /* Only transition body background + color on theme switch */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ── Smooth theme transition on all surfaces ── */
-*:not(video):not(img) {
-  transition-property: background-color, border-color, color;
-  transition-duration: 0.3s;
-  transition-timing-function: ease;
+/* ── Targeted theme transitions (NOT a global * rule) ── */
+/* Cards, sections, borders get smooth transition without breaking text renders */
+.theme-surface {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 /* ── Scrollbar ── */
@@ -107,8 +97,7 @@ body {
 .reveal {
   opacity: 0;
   transform: translateY(18px);
-  /* Override the global theme transition for this specific property */
-  transition: opacity 0.55s ease, transform 0.55s ease !important;
+  transition: opacity 0.55s ease, transform 0.55s ease;
 }
 .reveal.visible {
   opacity: 1;
@@ -151,11 +140,7 @@ body {
   cursor: pointer;
   transition: border-color 0.2s ease;
 }
-
-.scroll-mouse:hover {
-  border-color: var(--text-1);
-}
-
+.scroll-mouse:hover { border-color: var(--text-1); }
 .scroll-mouse::before {
   content: '';
   position: absolute;

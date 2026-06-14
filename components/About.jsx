@@ -1,6 +1,7 @@
 "use client";
 
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import SectionHeading from "@/components/SectionHeading";
 
 const STATS = [
   { value: "3",    label: "Years Experience" },
@@ -18,12 +19,7 @@ export default function About() {
     <section id="about" className="py-24">
       <div className="max-w-5xl mx-auto px-6 md:px-10">
 
-        <div ref={headingRef} className="reveal mb-12">
-          <p className="font-mono text-[11px] tracking-[0.14em] uppercase mb-2"
-            style={{ color: "var(--text-3)" }}>Who I am</p>
-          <h2 className="text-3xl font-bold tracking-tight" style={{ color: "var(--text-1)" }}>About</h2>
-          <div className="w-7 h-px mt-4" style={{ background: "var(--border-2)" }} />
-        </div>
+        <SectionHeading label="Who I am" title="About" headingRef={headingRef} />
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
 

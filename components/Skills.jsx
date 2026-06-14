@@ -2,6 +2,7 @@
 
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { skillGroups } from "@/data/skills";
+import SectionHeading from "@/components/SectionHeading";
 
 function SkillGroup({ group, index }) {
   const ref = useScrollReveal({ threshold: 0.1 });
@@ -43,13 +44,7 @@ export default function Skills() {
     <section id="skills" className="py-24" style={{ background: "var(--bg-alt)" }}>
       <div className="max-w-5xl mx-auto px-6 md:px-10">
 
-        <div ref={headingRef} className="reveal mb-12">
-          <p className="font-mono text-[11px] tracking-[0.14em] uppercase mb-2" style={{ color: "var(--text-3)" }}>
-            What I work with
-          </p>
-          <h2 className="text-3xl font-bold tracking-tight" style={{ color: "var(--text-1)" }}>Skills</h2>
-          <div className="w-7 h-px mt-4" style={{ background: "var(--border-2)" }} />
-        </div>
+        <SectionHeading label="What I work with" title="Skills" headingRef={headingRef} />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {skillGroups.map((group, i) => (

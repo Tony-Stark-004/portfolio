@@ -2,6 +2,7 @@
 
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { experience } from "@/data/experience";
+import SectionHeading from "@/components/SectionHeading";
 
 function BulletText({ bullet }) {
   if (!bullet.link) {
@@ -81,13 +82,7 @@ export default function Experience() {
     <section id="experience" className="py-24" style={{ background: "var(--bg-alt)" }}>
       <div className="max-w-5xl mx-auto px-6 md:px-10">
 
-        <div ref={headingRef} className="reveal mb-12">
-          <p className="font-mono text-[11px] tracking-[0.14em] uppercase mb-2" style={{ color: "var(--text-3)" }}>
-            Where I&apos;ve worked
-          </p>
-          <h2 className="text-3xl font-bold tracking-tight" style={{ color: "var(--text-1)" }}>Experience</h2>
-          <div className="w-7 h-px mt-4" style={{ background: "var(--border-2)" }} />
-        </div>
+        <SectionHeading label="Where I've worked" title="Experience" headingRef={headingRef} />
 
         <div className="relative timeline-track space-y-6">
           {experience.map((job, i) => (
