@@ -88,8 +88,8 @@ export default function ProjectCard({ project, index }) {
       {/* Repos — always visible */}
       {project.repos && <ReposList repos={project.repos} />}
 
-      {/* Video — YouTube embed */}
-      {project.youtubeUrl && <VideoPlayer youtubeUrl={project.youtubeUrl} />}
+      {/* Video — local file if available, otherwise YouTube embed */}
+      <VideoPlayer src={project.videoFile} youtubeUrl={project.youtubeUrl} />
     </article>
   );
 }
