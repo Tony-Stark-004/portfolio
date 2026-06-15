@@ -39,8 +39,11 @@ function MoonIcon() {
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const activeSection = useActiveSection(SECTION_IDS);
   const { theme, toggle } = useTheme();
+
+  useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -101,14 +104,14 @@ export default function Navbar() {
               onMouseEnter={e => e.currentTarget.style.color = "var(--text-1)"}
               onMouseLeave={e => e.currentTarget.style.color = "var(--text-3)"}
             >
-              {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+              {mounted && (theme === "dark" ? <SunIcon /> : <MoonIcon />)}
             </button>
           </div>
 
           {/* Mobile: theme + hamburger */}
           <div className="md:hidden flex items-center gap-3">
             <button onClick={toggle} aria-label="Toggle theme" className="p-1.5" style={{ color: "var(--text-3)" }}>
-              {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+              {mounted && (theme === "dark" ? <SunIcon /> : <MoonIcon />)}
             </button>
             <button
               onClick={() => setMenuOpen((p) => !p)}

@@ -2,19 +2,21 @@ export const experience = [
   {
     id: 1,
     company: "Wasserstoff RJ Innovations",
-    role: "Senior Software Engineer",
+    role: "Software Engineer",
     period: "Jan 2025 — Present",
     location: "Gurugram, Haryana",
     bullets: [
       {
-        text: "Shipped ChaturAI — an AI-powered recruitment SaaS platform with 10,000+ registered users, automating resume screening, candidate ranking, and JD generation using Spring Boot, REST APIs, and AWS.",
-        link: { label: "ChaturAI", href: "https://app.aichatur.com/", replaces: "ChaturAI" },
+        text: "Shipped ChaturAI, an AI-powered recruitment SaaS with 10,000+ registered users; designed RBAC with Spring Security and JWT, built async resume parsing pipeline processing 200+ resumes/day using multithreading, Kafka, and owned end-to-end CI/CD with Jenkins and Docker.",
+        link: { label: "ChaturAI", href: "https://www.youtube.com/watch?v=Dmvqi6xgjbY", replaces: "ChaturAI" },
       },
       {
-        text: "Designed RBAC authentication with Spring Security and JWT supporting multiple user roles; built automated resume parsing pipeline processing 200+ resumes/day using multithreading, Java Streams, and Kafka for async job queuing and concurrent document processing.",
+        text: "Engineered LitLaw, a Git-inspired legal document platform with CAS-based version control (SHA-512 content hashing), real-time collaborative editing via Spring WebSocket, automated PDF/DOCX export pipeline, and multi-cloud storage using AWS S3 and Azure Blob Storage with Redis-backed async job queuing.",
+        link: { label: "LitLaw", href: "https://litt.law/", replaces: "LitLaw" },
       },
       {
-        text: "Owned end-to-end CI/CD pipeline with Jenkins and Docker, integrating automated unit and integration testing with JUnit; collaborated in Agile/Scrum team with 2-week sprint cycles to streamline build, deployment, and feature delivery.",
+        text: "Built LitReg, a regulatory intelligence platform for SEBI/RBI regulators; implemented hierarchical document management with RBAC access control, SSO authentication, and a Spring AI-powered RAG ingestion pipeline for intelligent document querying, backed by PostgreSQL and Azure Blob Storage.",
+        link: { label: "LitReg", href: "https://reg.lit.law/auth/login", replaces: "LitReg" },
       },
     ],
   },
@@ -32,7 +34,7 @@ export const experience = [
         text: "Integrated Idefy KYC verification (PAN, Aadhaar, face match) into the user onboarding flow, automating identity checks for 500+ users and eliminating manual document review.",
       },
       {
-        text: "Implemented MCA-based corporate verification via Idefy API, enabling instant business identity validation and reducing enterprise compliance verification effort by ~70%.",
+        text: "Automated MCA-based corporate verification via Idefy API, enabling instant business identity validation and reducing enterprise compliance verification effort by ~70%.",
       },
     ],
   },

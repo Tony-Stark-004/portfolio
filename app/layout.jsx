@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
             __html: `
               (function() {
                 try {
-                  var saved = localStorage.getItem('portfolio-theme');
+                  var saved = localStorage.getItem('portfolio-theme-v2');
                   if (saved === 'light' || saved === 'dark') {
                     document.documentElement.setAttribute('data-theme', saved);
                   } else {

@@ -15,7 +15,7 @@ export function ThemeProvider({ children }) {
   // Sync DOM + localStorage whenever theme changes
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
-    try { localStorage.setItem("portfolio-theme", theme); } catch (_) {}
+    try { localStorage.setItem("portfolio-theme-v2", theme); } catch (_) {}
   }, [theme]);
 
   const toggle = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
